@@ -12,10 +12,15 @@ namespace OnlineShop.Areas.Admin.Controllers
     public class CategoryController : BaseController
     {
         // GET: Admin/Category
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            return View();
+            var dao = new CategoryDao();
+            var model = dao.ListAllPaging(searchString, page, pageSize);
+
+            ViewBag.SearchString = searchString;
+            return View(model);
         }
+
 
         public ActionResult Create()
         {
