@@ -1,0 +1,15 @@
+C:\Users\ToanBN\Documents\Visual Studio 2015\Projects\OnlineShop\Common\bin\Debug\Common.dll
+C:\Users\ToanBN\Documents\Visual Studio 2015\Projects\OnlineShop\Common\bin\Debug\Common.pdb
+C:\Users\ToanBN\Documents\Visual Studio 2015\Projects\OnlineShop\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\ToanBN\Documents\Visual Studio 2015\Projects\OnlineShop\Common\obj\Debug\Common.dll
+C:\Users\ToanBN\Documents\Visual Studio 2015\Projects\OnlineShop\Common\obj\Debug\Common.pdb
+E:\ASP\OnlineShop\Common\bin\Debug\Common.dll
+E:\ASP\OnlineShop\Common\bin\Debug\Common.pdb
+E:\ASP\OnlineShop\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\ASP\OnlineShop\Common\obj\Debug\Common.dll
+E:\ASP\OnlineShop\Common\obj\Debug\Common.pdb
+F:\ASP\OnlineShop\Common\bin\Debug\Common.dll
+F:\ASP\OnlineShop\Common\bin\Debug\Common.pdb
+F:\ASP\OnlineShop\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+F:\ASP\OnlineShop\Common\obj\Debug\Common.dll
+F:\ASP\OnlineShop\Common\obj\Debug\Common.pdb

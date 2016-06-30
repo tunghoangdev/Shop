@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admin</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link id="bootstrap-rtl-link" href="" rel="stylesheet" />
+    <link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/admin/css/beyond.min.css" rel="stylesheet" />
+    <link href="/assets/admin/css/demo.min.css" rel="stylesheet" />
+    <link href="/assets/admin/css/typicons.min.css" rel="stylesheet" />
+    <link href="/assets/admin/css/weather-icons.min.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300"
+          rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="/assets/admin/js/skins.min.js"></script>
+</head>
+<body>
+    <div class="loading-container loading-inactive">
+        <div class="loader"></div>
+    </div>
+        <!-- Navigation -->
+        @RenderPage("_Navigation.cshtml")
+        <!-- Page main-container -->
+        <div id="main-container container-fluid">
+            <!-- #page-container -->
+            <div class="page-container">
+                <!-- Page Sidebar -->
+                <div class="page-sidebar" id="sidebar">
+                    <!-- Page Sidebar Header-->
+                    <div class="sidebar-header-wrapper">
+                        <input class="searchinput" type="text">
+                        <i class="searchicon fa fa-search"></i>
+                        <div class="searchhelper">Search Reports, Charts, Emails or Notifications</div>
+                    </div>
+                    <!-- /Page Sidebar Header -->
+                    <!-- Sidebar Menu -->
+                    <ul class="nav sidebar-menu">
+                        <li class="active">
+                            <a href="/Admin/Home/Index"><i class="menu-icon glyphicon glyphicon-home"></i><span class="menu-text">Trang chủ</span></a>
+                        </li>
+                        <li>
+                            <a class="menu-dropdown" href="#"><i class="menu-icon fa fa-user"></i><span class="menu-text">Hệ thống</span><i class="menu-expand"></i></a>    
+                            <ul style="display: none;" class="submenu">
+                                <li>
+                                    <a href="/Admin/UserGroup/Index"><span class="menu-text">Nhóm người dùng</span></a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/User/Index"><span class="menu-text">User</span></a>
+                                </li>
+                             </ul>
+                                <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a class="menu-dropdown" href="#"><i class="menu-icon fa fa-comment"></i><span class="menu-text">Tin tức</span><i class="menu-expand"></i></a>    
+                            <ul  style="display: none;" class="submenu">
+                                <li>
+                                    <a href="/Admin/Category/Index"><span class="menu-text">Danh mục</span></a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/Content/Index"><span class="menu-text">Tin tức</span></a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a class="menu-dropdown" href="#"><i class="menu-icon fa fa-bell"></i><span class="menu-text">Sản phẩm</span><i class="menu-expand"></i></a>    
+                         
+                            <ul style="display: none;" class="submenu">
+                                <li>
+                                    <a href="/Admin/ProductCategory/Index"><span class="menu-text">Danh mục</span></a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/Product/Index"><span class="menu-text">Sản phẩm</span></a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a class="menu-dropdown" href="#"><i class="menu-icon fa fa-bar-chart-o"></i><span class="menu-text">Quản lý chung</span><i class="menu-expand"></i></a> 
+                            <ul style="display: none;" class="submenu">
+                                <li>
+                                    <a href="/Admin/About/Index"><span class="menu-text">Giới thiệu</span></a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/Footer/Index"><span class="menu-text">Foooter</span></a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/Footer/Index"><span class="menu-text">Menu</span></a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/Footer/Index"><span class="menu-text">Slide</span></a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/Footer/Index"><span class="menu-text">Phản hồi</span></a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+
+                    <!-- /Sidebar Menu -->
+                </div>
+                <!-- /Page Sidebar -->
+                <div class="page-content">
+                    <!-- page-breadcrumbs -->
+                    <div class="page-breadcrumbs">
+                        <ul class="breadcrumb">
+                            <li>
+                                Trang chủ
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /page-breadcrumbs -->
+                    <!-- page-Header -->
+                    <div class="page-header position-relative">
+                        <div class="header-title">
+                            <h1>
+                                @RenderSection("header", required: true)
+                                @*<small>
+                                    <i class="fa fa-angle-right"></i>
+                                    Trang chủ
+                                </small>*@
+                            </h1>
+                        </div>
+                        <!--Header Buttons-->
+                        <div class="header-buttons">
+                            <a class="sidebar-toggler" href="#">
+                                <i class="fa fa-arrows-h"></i>
+                            </a>
+                            <a class="refresh" id="refresh-toggler" href="">
+                                <i class="glyphicon glyphicon-refresh"></i>
+                            </a>
+                            <a class="fullscreen" id="fullscreen-toggler" href="#">
+                                <i class="glyphicon glyphicon-fullscreen"></i>
+                            </a>
+                        </div>
+                        <!--Header Buttons End-->
+                    </div>
+                    <!-- /page-Header -->
+                    <!-- /.row -->
+                    @if (TempData["AlertMessage"] != null)
+                    {
+                        <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                            @TempData["AlertMessage"]
+                        </div>
+                    }
+                    <div class="page-body">
+                        @RenderBody()
+                    </div>
+                </div>  <!-- /page-Content -->
+            </div> 
+            <!-- /#page-container -->
+        </div>
+        <!-- /Page main-container-->
+    <!-- jQuery -->
+    <script src="/assets/admin/js/jquery.min.js"></script>
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/assets/admin/js/bootstrap.min.js"></script>
+    <script src="/assets/admin/js/jquery.slimscroll.min.js"></script>
+    <script src="/assets/admin/js/beyond.min.js"></script>
+    <script src="/assets/admin/js/plugins/ckfinder/ckfinder.js"></script>
+    <script src="/assets/admin/js/plugins/ckeditor/ckeditor.js"></script>
+    <script src="/assets/admin/dist/js/sb-admin-2.js"></script>
+   <!--
+     <script src="/assets/admin/js/datatable/datatables-init.js"></script>
+    <script src="/assets/admin/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="/assets/admin/js/datatable/dataTables.min.js"></script>
+    <script src="/assets/admin/js/datatable/dataTables.tableTools.min.js"></script>
+    <script>
+        InitiateSimpleDataTable.init();
+        InitiateEditableDataTable.init();
+        InitiateExpandableDataTable.init();
+        InitiateSearchableDataTable.init();
+    </script>
+   -->
+    @RenderSection("jsFooter", required: false)
+</body>
+</html>

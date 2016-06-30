@@ -1,0 +1,108 @@
+﻿@model Model.EF.Content
+
+@{
+    ViewBag.Title = "Cập nhật tin tức";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+
+@section header{
+    Cập nhật tin tức
+}
+@section jsFooter{
+    <script>
+        $('#btnSelectImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url);
+            };
+            finder.popup();
+        })
+
+        var editor = CKEDITOR.replace('txtContent', {
+            customConfig: '/assets/admin/js/plugins/ckeditor/config.js',
+        });
+    </script>
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="col-lg-9 col-sm-9 col-xs-12">
+        <div class="widget">
+            <div class="widget-header bg-blue">
+                <span class="widget-caption">Tin tức</span>
+            </div>
+            <div class="widget-body bordered-top bordered-info">
+                <div class="collapse in">
+                    <div class="row">
+                        <div class="col-md-2"><span>Danh mục tin tức</span></div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                @Html.DropDownListFor(model => model.CategoryID, null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.Name, htmlAttributes: new { @class = "form-control", @placeholder = "Tiêu đề bài viết" })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.MetaTitle, htmlAttributes: new { @class = "form-control", @placeholder = "Tiêu đề không dấu" })
+                        @Html.ValidationMessageFor(model => model.MetaTitle, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextAreaFor(model => model.Description, htmlAttributes: new { @class = "form-control", @placeholder = "Đoạn mô tả ngắn" })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                @Html.TextBoxFor(model => model.Image, htmlAttributes: new { @class = "form-control", @id = "txtImage", @placeholder = "Hình intro của bài viết" })
+                                <div class="input-group-btn">
+                                    <button id="btnSelectImage" type="button" class="btn btn-info">Chọn hình</button>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-title">
+                        Nội dung bài viết
+                    </div>
+                    <div class="form-group">
+                        @Html.TextAreaFor(model => model.Detail, htmlAttributes: new { @class = "form-control", @id = "txtContent" })
+                        @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.MetaKeywords, htmlAttributes: new { @class = "form-control", @placeholder = "Từ khóa cho bài viết" })
+                        @Html.ValidationMessageFor(model => model.MetaKeywords, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.MetaDescriptions, htmlAttributes: new { @class = "form-control", @placeholder = "Mô tả ngắn có chứa từ khóa" })
+                        @Html.ValidationMessageFor(model => model.MetaDescriptions, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.Tags, htmlAttributes: new { @class = "form-control", @placeholder = "Nhập từ khóa tin liên quan cách nhau bởi dấu ," })
+                        @Html.ValidationMessageFor(model => model.Tags, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBoxFor(model => model.Status)
+                                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                                <span class="text">Kích hoạt</span>
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Cập nhật" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
