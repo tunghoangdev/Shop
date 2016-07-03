@@ -94,7 +94,7 @@
                                         <td>@item.DisplayOrder</td>
                                         <td>@item.CreatedDate</td>
                                         <td class="text-center">
-                                            <a href="#" class="btn-active" data-id="@item.ID">@Html.Raw(item.Status ? "<span class='text-success'><i class='glyphicon glyphicon-check'></i></span>" : "<span class='text-danger'><i class='glyphicon glyphicon-unchecked'></i></span>")</a>
+                                            <a href="#" class="btn-active" data-id="@item.ID">@Html.Raw((item.Status == true) ? "<span class='text-success'><i class='glyphicon glyphicon-check'></i></span>" : "<span class='text-danger'><i class='glyphicon glyphicon-unchecked'></i></span>")</a>
 
                                         </td>
                                         <td valign="middle">
