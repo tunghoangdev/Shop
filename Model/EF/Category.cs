@@ -49,7 +49,7 @@ namespace Model.EF
         public string MetaDescriptions { get; set; }
 
         [Display(Name = "Category_Status", ResourceType = typeof(StaticResources.Resources))]
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
 
         [Display(Name = "Category_ShowOnHome", ResourceType = typeof(StaticResources.Resources))]
         public bool? ShowOnHome { get; set; }

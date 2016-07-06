@@ -16,11 +16,9 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             var dao = new CategoryDao();
             var model = dao.ListAllPaging(searchString, page, pageSize);
-
             ViewBag.SearchString = searchString;
             return View(model);
         }
-
 
         public ActionResult Create()
         {
@@ -30,6 +28,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(Category model)
         {
+            SetViewBag();
             if (ModelState.IsValid)
             {
                 var currentCulture = Session[CommonConstants.CurrentCulture];
@@ -45,6 +44,11 @@ namespace OnlineShop.Areas.Admin.Controllers
                 }
             }
             return View(model);
+        }
+        public void SetViewBag(long? selectedId = null)
+        {
+            var dao = new CategoryDao();
+            ViewBag.ID = new SelectList(dao.ListAll(), "ID", "Name", selectedId);
         }
     }
 }
