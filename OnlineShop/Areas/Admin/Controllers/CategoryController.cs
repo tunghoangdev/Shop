@@ -22,6 +22,7 @@ namespace OnlineShop.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
+            SetViewBag();
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         public void SetViewBag(long? selectedId = null)
         {
             var dao = new CategoryDao();
-            ViewBag.ID = new SelectList(dao.ListAll(), "ID", "Name", selectedId);
+            ViewBag.ParentID = new SelectList(dao.ListAll(), "ID", "Name", selectedId);
         }
     }
 }

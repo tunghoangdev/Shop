@@ -26,11 +26,14 @@ namespace Model.Dao
            // return model.OrderByDescending(x => x.ID).ToPagedList(page, pageSize);
         }
 
-        public object ListAll()
+        //public object ListAll()
+        //{
+        //    throw new NotImplementedException();
+        //}
+        public List<ProductCategory> ListAll()
         {
-            throw new NotImplementedException();
+            return db.ProductCategories.ToList();
         }
-
         public ProductCategory ViewDetail(long id)
         {
             return db.ProductCategories.Find(id);

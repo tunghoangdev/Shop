@@ -13,3 +13,8 @@ F:\ASP\OnlineShop\Common\bin\Debug\Common.pdb
 F:\ASP\OnlineShop\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
 F:\ASP\OnlineShop\Common\obj\Debug\Common.dll
 F:\ASP\OnlineShop\Common\obj\Debug\Common.pdb
+E:\DATA\Project\Shop\Common\bin\Debug\Common.dll
+E:\DATA\Project\Shop\Common\bin\Debug\Common.pdb
+E:\DATA\Project\Shop\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\DATA\Project\Shop\Common\obj\Debug\Common.dll
+E:\DATA\Project\Shop\Common\obj\Debug\Common.pdb

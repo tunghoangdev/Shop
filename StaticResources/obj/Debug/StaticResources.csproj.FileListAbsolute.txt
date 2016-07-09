@@ -27,3 +27,13 @@ F:\ASP\OnlineShop\StaticResources\obj\Debug\StaticResources.csproj.GenerateResou
 F:\ASP\OnlineShop\StaticResources\obj\Debug\en\StaticResources.resources.dll
 F:\ASP\OnlineShop\StaticResources\obj\Debug\StaticResources.dll
 F:\ASP\OnlineShop\StaticResources\obj\Debug\StaticResources.pdb
+E:\DATA\Project\Shop\StaticResources\bin\Debug\StaticResources.dll
+E:\DATA\Project\Shop\StaticResources\bin\Debug\StaticResources.pdb
+E:\DATA\Project\Shop\StaticResources\bin\Debug\en\StaticResources.resources.dll
+E:\DATA\Project\Shop\StaticResources\obj\Debug\StaticResources.csprojResolveAssemblyReference.cache
+E:\DATA\Project\Shop\StaticResources\obj\Debug\StaticResources.Resources.resources
+E:\DATA\Project\Shop\StaticResources\obj\Debug\StaticResources.Resources.en.resources
+E:\DATA\Project\Shop\StaticResources\obj\Debug\StaticResources.csproj.GenerateResource.Cache
+E:\DATA\Project\Shop\StaticResources\obj\Debug\en\StaticResources.resources.dll
+E:\DATA\Project\Shop\StaticResources\obj\Debug\StaticResources.dll
+E:\DATA\Project\Shop\StaticResources\obj\Debug\StaticResources.pdb
