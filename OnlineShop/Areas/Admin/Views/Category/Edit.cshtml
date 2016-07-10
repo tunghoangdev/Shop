@@ -1,12 +1,12 @@
 ﻿@model Model.EF.Category
 
 @{
-    ViewBag.Title = "Thêm mới thể loại";
+    ViewBag.Title = "Chỉnh sửa thể loại";
     Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
 }
 
 @section header{
-    Thêm mới thể loại
+    Chỉnh sửa thể loại
 }
 @section jsFooter{
     <script>
@@ -34,24 +34,24 @@
             </div>
             <div class="widget-body bordered-top bordered-info">
                 <div class="collapse in">
-            
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.Name, htmlAttributes: new { @class = "form-control", @placeholder = "Tiêu đề" })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.MetaTitle, htmlAttributes: new { @class = "form-control", @placeholder = "Tiêu đề không dấu" })
+                        @Html.ValidationMessageFor(model => model.MetaTitle, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2"><span>Danh mục cha</span></div>
+                    <div class="col-lg-4">
                         <div class="form-group">
-                            @Html.TextBoxFor(model => model.Name, htmlAttributes: new { @class = "form-control", @placeholder = "Tiêu đề" })
-                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            @Html.DropDownListFor(model => model.ParentID, null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
                         </div>
-                        <div class="form-group">
-                            @Html.TextBoxFor(model => model.MetaTitle, htmlAttributes: new { @class = "form-control", @placeholder = "Tiêu đề không dấu" })
-                            @Html.ValidationMessageFor(model => model.MetaTitle, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="col-md-2"><span>Danh mục cha</span></div>
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                @Html.DropDownListFor(model => model.ParentID, null, htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                 
+                    </div>
+
                     <div class="form-group">
                         @Html.TextAreaFor(model => model.MetaDescriptions, htmlAttributes: new { @class = "form-control", @placeholder = "Đoạn mô tả ngắn" })
                         @Html.ValidationMessageFor(model => model.MetaDescriptions, "", new { @class = "text-danger" })
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Thêm mới" class="btn btn-success" />
+                        <input type="submit" value="Cập nhật" class="btn btn-success" />
                     </div>
                 </div>
             </div>

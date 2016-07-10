@@ -28,6 +28,23 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Create(Content model)
+        {
+            if (ModelState.IsValid)
+            {
+                var session = (UserLogin)Session[CommonConstants.USER_SESSION];
+                model.CreatedBy = session.UserName;
+                var culture = Session[CommonConstants.CurrentCulture];
+                model.Language = culture.ToString();
+                new ContentDao().Create(model);
+                return RedirectToAction("Index");
+            }
+            SetViewBag();
+            return View();
+        }
+
         [HttpGet]
         public ActionResult Edit(long id)
         {
@@ -61,23 +78,6 @@ namespace OnlineShop.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             SetViewBag(content.CategoryID);
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult Create(Content model)
-        {
-            if (ModelState.IsValid)
-            {
-                var session = (UserLogin)Session[CommonConstants.USER_SESSION];
-                model.CreatedBy = session.UserName;
-                var culture = Session[CommonConstants.CurrentCulture];
-                model.Language = culture.ToString();
-                new ContentDao().Create(model);
-                return RedirectToAction("Index");
-            }
-            SetViewBag();
             return View();
         }
         [HttpDelete]

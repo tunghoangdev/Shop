@@ -19,7 +19,7 @@ namespace OnlineShop.Areas.Admin.Controllers
             ViewBag.SearchString = searchString;
             return View(model);
         }
-
+        // tao moi
         public ActionResult Create()
         {
             SetViewBag();
@@ -34,6 +34,8 @@ namespace OnlineShop.Areas.Admin.Controllers
             {
                 var currentCulture = Session[CommonConstants.CurrentCulture];
                 model.Language = currentCulture.ToString();
+                 var session = (UserLogin)Session[CommonConstants.USER_SESSION];
+                model.CreatedBy = session.UserName;
                 var id = new CategoryDao().Insert(model);
                 if (id > 0)
                 {
@@ -45,6 +47,59 @@ namespace OnlineShop.Areas.Admin.Controllers
                 }
             }
             return View(model);
+        }
+        // Chinh sua
+        [HttpGet]
+        public ActionResult Edit(long id)
+        {
+            var dao = new CategoryDao();
+            var cat = dao.GetByID(id);
+            SetViewBag(cat.ParentID);
+            return View(cat);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Edit(Category cat)
+        {
+            var dao = new CategoryDao();
+            if (ModelState.IsValid)
+            {
+                var session = (UserLogin)Session[CommonConstants.USER_SESSION];
+                cat.ModifiedBy = session.UserName;
+                var culture = Session[CommonConstants.CurrentCulture];
+                cat.Language = culture.ToString();
+                var result = dao.Edit(cat);
+                if (result)
+                {
+                    SetAlert("Cập nhật thể loại thành công!", "success");
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập nhật thể loại không thành công!");
+                }
+                return RedirectToAction("Index");
+            }
+            SetViewBag(cat.ParentID);
+            return View();
+        }
+        // Phuong thuc xoa the loai
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            new CategoryDao().Delete(id);
+            return RedirectToAction("Index");
+        }
+        // Thay doi trang thai
+        [HttpPost]
+        public JsonResult ChangeStatus(long id)
+        {
+            var result = new CategoryDao().ChangeStatus(id);
+            return Json(new
+            {
+                status = result
+            });
         }
         public void SetViewBag(long? selectedId = null)
         {
